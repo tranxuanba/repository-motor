@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Motor</title>
+</head>
+<body>
+<h3>New Motor</h3>
+<p>
+    <a th:href="@{/motors}">
+        Back to Motors List
+    </a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/motors/save}" th:object="${motorForm}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+    <div>
+        <label>Id</label>
+        <input type="text" th:field="*{id}"/>
+    </div>
+    <div>
+        <label>Name</label>
+        <input type="text" th:field="*{name}"/>
+    </div>
+    <div>
+        <label>Price</label>
+        <input type="text" th:field="*{price}"/>
+    </div>
+    <div>
+        <label>Image</label>
+        <input type="file" th:field="*{image}"/>
+    </div>
+    <input type="submit" value="Save"/>
+</form>
+</body>
+</html>

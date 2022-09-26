@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Motor</title>
+</head>
+<body>
+<h1>Delete motor</h1>
+<h2>Are you sure?</h2>
+<p>
+    <a th:href="@{/motors}">Motor list</a>
+</p>
+<form th:action="@{/motors/delete}" th:object="${motor}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td th:text="${motor.name}"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td th:text="${motor.price}"></td>
+        </tr>
+        <tr>
+            <td>Image:</td>
+            <td><img width="100" height="100" th:src="@{'/image/' + ${motor.image}}" alt="khong co anh"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Delete motor"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
